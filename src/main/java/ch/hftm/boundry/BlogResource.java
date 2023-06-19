@@ -1,6 +1,7 @@
-package ch.hftm;
+package ch.hftm.boundry;
 
-import io.smallrye.common.constraint.NotNull;
+import ch.hftm.entity.Blog;
+import ch.hftm.control.BlogService;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.DELETE;

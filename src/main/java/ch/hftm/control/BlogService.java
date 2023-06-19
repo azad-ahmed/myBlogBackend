@@ -1,7 +1,8 @@
-package ch.hftm;
+package ch.hftm.control;
 
 import java.util.List;
 
+import ch.hftm.entity.Blog;
 import jakarta.transaction.Transactional;
 import org.jboss.logging.Logger;
 

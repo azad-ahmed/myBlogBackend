@@ -1,8 +1,11 @@
-package ch.hftm;
+package ch.hftm.entity;
 
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 
+import lombok.Builder;
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
@@ -10,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Data
+@Builder
 public class Blog extends PanacheEntityBase {
 
     public record BlogCreateDto(String title, String content) {}

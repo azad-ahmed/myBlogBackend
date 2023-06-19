@@ -1,5 +1,6 @@
-package ch.hftm;
+package ch.hftm.entity;
 
+import ch.hftm.entity.Blog;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 
