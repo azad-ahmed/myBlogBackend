@@ -47,6 +47,21 @@ public class BlogService {
     }
 
     @Transactional
+    public Blog partialUpdateBlog(long id, Blog.BlogCreateDto updateDto) {
+        var blog = blogRepository.findById(id);
+        if(blog != null) {
+            if (updateDto.title() != null) {
+                blog.setTitle(updateDto.title());
+            }
+            if (updateDto.content() != null) {
+                blog.setContent(updateDto.content());
+            }
+        }
+        return blog;
+    }
+
+
+    @Transactional
     public boolean deleteBlog(long id) {
         if(blogRepository.deleteById(id)) {
             LOGGER.info("Deleted blog with id " + id);

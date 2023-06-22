@@ -39,6 +39,16 @@ public class BlogResource {
         Blog blog = blogService.updateBlog(id, updateDto);
         return Response.ok(blog).build();
     }
+    @PATCH
+    @Path("/{id}")
+    public Response partialUpdateBlog(@PathParam("id") long id, Blog.BlogCreateDto updateDto) {
+        Blog updatedBlog = blogService.partialUpdateBlog(id, updateDto);
+        if (updatedBlog != null) {
+            return Response.ok(updatedBlog).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
     @DELETE
     @Path("/{id}")
     public Response deleteBlog(long id) {

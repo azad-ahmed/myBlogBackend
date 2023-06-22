@@ -59,6 +59,24 @@ public class BlogServiceTest {
         assertEquals("newContent", blog.getContent());
     }
 
+    @Test
+    public void testPartialUpdateBlog() {
+        BlogRepository blogRepository = Mockito.mock(BlogRepository.class);
+        BlogService blogService = new BlogService();
+        blogService.blogRepository = blogRepository;
+
+        Blog blog = new Blog("author", "title", "content");
+        blog.setId(1L);
+        Mockito.when(blogRepository.findById(1L)).thenReturn(blog);
+
+        Blog.BlogCreateDto updateDto = new Blog.BlogCreateDto(null, "newContent");
+        Blog updatedBlog = blogService.partialUpdateBlog(1L, updateDto);
+
+        // Verify that the blog content has been updated and title remains the same
+        assertEquals("newContent", updatedBlog.getContent());
+        assertEquals("title", updatedBlog.getTitle());
+    }
+
     @org.junit.Test
     public void testDeleteBlog() {
         BlogRepository blogRepository = Mockito.mock(BlogRepository.class);
