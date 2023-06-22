@@ -6,7 +6,7 @@
 ###
 - Das Projekt "Blog Backend" wird im Auftrag von Simeon Liniger an der HFTM-Schule entwickelt.
 ####
-- Dies ist mein Quarkus-Projekt zur Erstellung eines Blogs mit GET, SET, Update und Delete-Funktionen.
+- Dies ist mein Quarkus-Projekt zur Erstellung eines Blogs mit GET, POST, PUT, PATCH und DELETE-Funktionen.
 ####
 
 - Das Projekt "Blog Backend" ist ein Beispielprojekt, das mit dem Quarkus-Framework entwickelt wurde. Es dient als Backend für einen einfachen Blog und stellt RESTful-API-Endpunkte bereit, um Blogbeiträge zu verwalten.
@@ -46,11 +46,35 @@
 
 - If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
-## Running the application in dev mode
+## Projektstruktur
 
-You can run your application in dev mode that enables live coding using:
-```shell script
-./mvnw quarkus:dev
-```
+Das Projekt besteht aus folgenden Hauptkomponenten:
+
+- `ch.hftm.model`: Enthält die Datenmodelle für Blogs und Kommentare.
+- `ch.hftm.repository`: Stellt das Repository für den Zugriff auf die Datenbank bereit.
+- `ch.hftm.service`: Enthält die Geschäftslogik für das Hinzufügen, Aktualisieren, Löschen und Abrufen von Blogs.
+- `ch.hftm.web`: Stellt die REST-Schnittstelle für das Blog-System bereit.
+
+## Konfiguration
+
+Die Datenbankverbindung und andere Einstellungen können in der Datei `application.properties` konfiguriert werden. Stelle sicher, dass du die richtigen Werte für die MySQL-Verbindung bereitstellst.
+
+## Verwendung
+
+1. Starte deine MySQL-Datenbank. Du kannst Docker verwenden, indem du den Befehl `docker-compose up -d` ausführst und sicherstellst, dass die in der `docker-compose.yml` angegebenen Konfigurationen korrekt sind.
+
+2. Führe den Befehl `./ mvnw quarkus:dev` aus, um das Projekt zu kompilieren und den Quarkus-Entwicklungsmodus zu starten.
+
+3. Das Blog-System ist jetzt unter `http://localhost:8080/blog` erreichbar. Du kannst die verfügbaren REST-Endpunkte verwenden, um Blogs abzurufen, Blogs zu erstellen, Blogs zu aktualisieren, Blogs zu löschen und Kommentare zu erstellen.
+
+4. Um Swagger UI aufzurufen, starte das Projekt und navigiere zu `http://localhost:8080/swagger-ui/` in deinem Webbrowser. Du kannst dort die verschiedenen API-Endpunkte anzeigen, deren Details überprüfen und sogar Anfragen direkt ausführen.
+
+## Tests
+
+Das Projekt enthält auch Tests, die die verschiedenen Komponenten überprüfen. Führe den Befehl `mvn test` aus, um die Tests auszuführen und sicherzustellen, dass alles korrekt funktioniert.
+
+## Beitragende
+
+- Azad Ahmed <azad.ahmed@hftm.ch>
 
 > **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
