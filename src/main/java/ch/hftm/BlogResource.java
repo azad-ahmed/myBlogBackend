@@ -1,17 +1,14 @@
-package ch.hftm.boundry;
+package ch.hftm;
 
-import ch.hftm.entity.Blog;
-import ch.hftm.control.BlogService;
+
+import ch.hftm.model.Blog;
+import ch.hftm.service.BlogService;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.DELETE;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.UriInfo;
-
 import java.util.List;
 
 @ApplicationScoped
@@ -35,6 +32,13 @@ public class BlogResource {
                 .created(uriInfo.getAbsolutePathBuilder().path(blog.getId().toString()).build())
                 .entity(blog)
                 .build();
+    }
+
+    @PUT
+    @Path("/{id}")
+    public Response updateBlog(@PathParam("id") long id, Blog.BlogCreateDto updateDto) {
+        Blog blog = blogService.updateBlog(id, updateDto);
+        return Response.ok(blog).build();
     }
 
     @DELETE
