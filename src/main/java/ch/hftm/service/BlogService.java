@@ -1,13 +1,12 @@
 package ch.hftm.service;
 
+
 import ch.hftm.model.Blog;
 import ch.hftm.repository.BlogRepository;
 import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import org.jboss.logging.Logger;
-
-
 import java.util.List;
 
 @Dependent
