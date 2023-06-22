@@ -6,6 +6,7 @@ import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import org.jboss.logging.Logger;
+import org.junit.Test;
 
 import java.util.List;
 
@@ -55,4 +56,5 @@ public class BlogService {
             return false;
         }
     }
+
 }

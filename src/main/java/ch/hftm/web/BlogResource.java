@@ -1,4 +1,4 @@
-package ch.hftm;
+package ch.hftm.web;
 
 
 import ch.hftm.model.Blog;
@@ -33,14 +33,12 @@ public class BlogResource {
                 .entity(blog)
                 .build();
     }
-
     @PUT
     @Path("/{id}")
     public Response updateBlog(@PathParam("id") long id, Blog.BlogCreateDto updateDto) {
         Blog blog = blogService.updateBlog(id, updateDto);
         return Response.ok(blog).build();
     }
-
     @DELETE
     @Path("/{id}")
     public Response deleteBlog(long id) {
