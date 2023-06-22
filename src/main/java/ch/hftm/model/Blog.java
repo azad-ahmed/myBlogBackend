@@ -1,30 +1,37 @@
 package ch.hftm.model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Blog extends PanacheEntityBase {
+public class Blog {
 
     public record BlogCreateDto(String title, String content) {}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank(message = "Author must not be blank")
     private String author;
+
+    @NotBlank(message = "Title must not be blank")
     private String title;
+
+    @NotBlank(message = "Content must not be blank")
     private String content;
 
     @OneToMany(mappedBy = "blog")
@@ -37,6 +44,7 @@ public class Blog extends PanacheEntityBase {
 
     @CreationTimestamp
     private LocalDateTime createdAt;
+
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
