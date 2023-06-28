@@ -20,6 +20,7 @@ public class Comment {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "blog_fk")
     private Blog blog;
+
     @NotBlank(message = "Author must not be blank")
     private String author;
     @NotBlank(message = "Content must not be blank")

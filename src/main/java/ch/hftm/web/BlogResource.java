@@ -38,21 +38,31 @@ public class BlogResource {
     @Path("/{id}")
     public Response updateBlog(@PathParam("id") long id, Blog.BlogCreateDto updateDto) {
         Blog blog = blogService.updateBlog(id, updateDto);
-        return Response.ok(blog).build();
+        return Response.ok(new Blog.BlogAllDto(
+                blog.getId(),
+                blog.getTitle(),
+                blog.getContent(),
+                blog.getAuthor()
+        )).build();
     }
     @PATCH
     @Path("/{id}")
     public Response partialUpdateBlog(@PathParam("id") long id, Blog.BlogCreateDto updateDto) {
         Blog updatedBlog = blogService.partialUpdateBlog(id, updateDto);
         if (updatedBlog != null) {
-            return Response.ok(updatedBlog).build();
+            return Response.ok(new Blog.BlogAllDto(
+                    updatedBlog.getId(),
+                    updatedBlog.getTitle(),
+                    updatedBlog.getContent(),
+                    updatedBlog.getAuthor()
+            )).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
     @DELETE
     @Path("/{id}")
-    public Response deleteBlog(long id) {
+    public Response deleteBlog(@PathParam("id")long id) {
         if (blogService.deleteBlog(id)) {
             return Response.ok().build();
         } else {

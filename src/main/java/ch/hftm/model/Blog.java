@@ -20,6 +20,7 @@ import java.util.List;
 public class Blog {
 
     public record BlogCreateDto(String title, String content) {}
+    public record BlogAllDto(Long id, String title, String content, String author) {}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

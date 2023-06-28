@@ -1,80 +1,80 @@
 # Mein Quarkus Blog-Projekt
 
+- [Übersicht](#übersicht)
+- [Funktionen](#funktionen)
+- [Technologien](#technologien)
+- [Projektstruktur](#projektstruktur)
+- [Verwendung](#verwendung)
+- [Tests](#tests)
+- [Beitragende](#beitragende)
 
 ## Übersicht
 
-###
-- Das Projekt "Blog Backend" wird im Auftrag von Simeon Liniger an der HFTM-Schule entwickelt.
-####
-- Dies ist mein Quarkus-Projekt zur Erstellung eines Blogs mit GET, POST, PUT, PATCH und DELETE-Funktionen.
-####
+Dieses Projekt ist ein Beispiel für ein Blog-Backend, das mit dem Quarkus-Framework entwickelt wurde. Es stellt RESTful-API-Endpunkte bereit, um Blogbeiträge zu verwalten.
 
-- Das Projekt "Blog Backend" ist ein Beispielprojekt, das mit dem Quarkus-Framework entwickelt wurde. Es dient als Backend für einen einfachen Blog und stellt RESTful-API-Endpunkte bereit, um Blogbeiträge zu verwalten.
-####
-- Das Quarkus-Framework wurde gewählt (HFTM-Studium), da es sich um ein leichtgewichtiges und leistungsstarkes Java-Framework handelt, das speziell für die Entwicklung von Cloud-nativen Anwendungen entwickelt wurde. Wir haben im 2. Studiumjahr Projekte mit Java-entwickelt, daher habe ich für Quarkus entschieden. Es zeichnet sich durch seine schnelle Startzeit, geringen Speicherbedarf und effiziente Verarbeitung von HTTP-Anfragen aus.
-####
-- Das Projekt verwendet Maven als Build-Management-Tool, um Abhängigkeiten zu verwalten und das Kompilieren des Codes sowie das Erstellen von Paketen zu erleichtern.
-####
-- Das Blog-Backend-Projekt kann als Ausgangspunkt dienen, um deine eigenen Anwendungen mit Quarkus zu entwickeln und zu erweitern. Du kannst weitere Funktionen hinzufügen, das Frontend integrieren oder das Projekt als Teil einer grösseren Anwendung verwenden.
-###
+## Funktionen
 
+Das Blog-Backend bietet folgende Funktionen:
 
-### Die Hauptfunktionen des Blog-Backends sind:
-##
-#### Erstellen eines neuen Blogbeitrags:
--  Durch Aufrufen des POST-Endpunkts können Benutzer einen neuen Blogbeitrag erstellen. Die Informationen werden im Anfragekörper im JSON-Format übergeben.
-#### Abrufen aller Blogbeiträge:
--  Durch Aufrufen des GET-Endpunkts erhalten Benutzer eine Liste aller vorhandenen Blogbeiträge.
-#### Abrufen eines einzelnen Blogbeitrags:
--  Durch Aufrufen des GET-Endpunkts mit einer spezifischen ID erhalten Benutzer die Details eines einzelnen Blogbeitrags.
-#### Aktualisieren eines Blogbeitrags:
-- Durch Aufrufen des PUT-Endpunkts mit einer spezifischen ID können Benutzer einen vorhandenen Blogbeitrag aktualisieren. Die aktualisierten Informationen werden im Anfragekörper im JSON-Format übergeben.
-#### Löschen eines Blogbeitrags:
-- Durch Aufrufen des DELETE-Endpunkts mit einer spezifischen ID können Benutzer einen Blogbeitrag löschen.
-###
+- **Erstellen eines neuen Blogbeitrags:** Durch einen POST-Request können Benutzer einen neuen Blogbeitrag erstellen. Die erforderlichen Informationen werden im Anfragekörper im JSON-Format übergeben.
 
-### Datenbank
-- Das Projekt verwendet auch eine Datenbank, die in der Datei src/main/resources/application.properties konfiguriert wird. Du kannst die Einstellungen anpassen, um deine bevorzugte Datenbank (z.B. MySQL, PostgreSQL) zu verwenden.
-####
+- **Abrufen aller Blogbeiträge:** Durch einen GET-Request können Benutzer eine Liste aller vorhandenen Blogbeiträge abrufen.
 
-### Technologien, die ich einsetze.
+- **Abrufen eines einzelnen Blogbeitrags:** Durch einen GET-Request mit einer spezifischen ID können Benutzer die Details eines einzelnen Blogbeitrags abrufen.
 
-- Quarkus: Eine leistungsstarke Java-Framework für Cloud-native Anwendungen.
-- Maven: Ein Build-Management-Tool für die Java-Entwicklung.
-- RESTEasy Reactive: Eine Quarkus-Erweiterung für die Entwicklung von reaktiven und skalierbaren RESTful-Webdiensten.
-- JSON-B: Eine Java-API für die Serialisierung und Deserialisierung von Java-Objekten in JSON-Format.
+- **Aktualisieren eines Blogbeitrags:** Durch einen PUT-Request mit einer spezifischen ID können Benutzer einen vorhandenen Blogbeitrag aktualisieren. Die aktualisierten Informationen werden im Anfragekörper im JSON-Format übergeben.
 
-- If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+- **Löschen eines Blogbeitrags:** Durch einen DELETE-Request mit einer spezifischen ID können Benutzer einen Blogbeitrag löschen.
+
+## Technologien
+
+Das Projekt nutzt folgende Technologien:
+
+- **Quarkus:** Ein leichtgewichtiges und leistungsstarkes Java-Framework für Cloud-native Anwendungen. Es bietet eine schnelle Startzeit, geringen Speicherbedarf und effiziente Verarbeitung von HTTP-Anfragen.
+
+- **Maven:** Ein Build-Management-Tool für die Java-Entwicklung. Maven wird verwendet, um Abhängigkeiten zu verwalten, den Code zu kompilieren und Pakete zu erstellen.
+
+- **RESTEasy Reactive:** Eine Quarkus-Erweiterung für die Entwicklung von reaktiven und skalierbaren RESTful-Webdiensten. Sie bietet eine leistungsstarke Unterstützung für die Implementierung von RESTful-APIs.
+
+- **JSON-B:** Eine Java-API für die Serialisierung und Deserialisierung von Java-Objekten im JSON-Format. JSON-B wird verwendet, um die Datenmodelle in JSON umzuwandeln und umgekehrt.
 
 ## Projektstruktur
 
-Das Projekt besteht aus folgenden Hauptkomponenten:
+Das Projekt ist wie folgt strukturiert:
 
-- `ch.hftm.model`: Enthält die Datenmodelle für Blogs und Kommentare.
-- `ch.hftm.repository`: Stellt das Repository für den Zugriff auf die Datenbank bereit.
-- `ch.hftm.service`: Enthält die Geschäftslogik für das Hinzufügen, Aktualisieren, Löschen und Abrufen von Blogs.
-- `ch.hftm.web`: Stellt die REST-Schnittstelle für das Blog-System bereit.
-
-## Konfiguration
-
-Die Datenbankverbindung und andere Einstellungen können in der Datei `application.properties` konfiguriert werden. Stelle sicher, dass du die richtigen Werte für die MySQL-Verbindung bereitstellst.
+- `src/main/java/ch/hftm/model`: Enthält die Datenmodelle für Blogs und Kommentare.
+- `src/main/java/ch/hftm/repository`: Stellt das Repository für den Zugriff auf die Datenbank bereit.
+- `src/main/java/ch/hftm/service`: Enthält die Geschäftslogik für das Hinzufügen, Aktualisieren, Löschen und Abrufen von Blogs.
+- `src/main/java/ch/hftm/web`: Stellt die REST-Schnittstelle für das Blog-System bereit.
+- `src/test/java/ch/hftm/model`: Enthält Unit-Tests für die Datenmodelle.
+- `src/test/java/ch/hftm/service`: Enthält Unit-Tests für die Geschäftslogik.
+- `src/test/java/ch/hftm/web`: Enthält Integrationstests für die REST-Schnittstelle.
 
 ## Verwendung
 
-1. Starte deine MySQL-Datenbank. Du kannst Docker verwenden, indem du den Befehl `docker-compose up -d` ausführst und sicherstellst, dass die in der `docker-compose.yml` angegebenen Konfigurationen korrekt sind.
+Folge diesen Schritten, um das Blog-Backend-Projekt zu verwenden:
 
-2. Führe den Befehl `./ mvnw quarkus:dev` aus, um das Projekt zu kompilieren und den Quarkus-Entwicklungsmodus zu starten.
+1. **Starte deine MySQL-Datenbank:** Stelle sicher, dass du eine MySQL-Datenbank installiert hast. Du kannst Docker verwenden, indem du den Befehl `docker-compose up -d` ausführst und sicherstellst, dass die in der `docker-compose.yml` angegebenen Konfigurationen korrekt sind.
 
-3. Das Blog-System ist jetzt unter `http://localhost:8080/blog` erreichbar. Du kannst die verfügbaren REST-Endpunkte verwenden, um Blogs abzurufen, Blogs zu erstellen, Blogs zu aktualisieren, Blogs zu löschen und Kommentare zu erstellen.
+2. **Starte das Projekt:** Öffne eine Befehlszeile, wechsle zum Projektverzeichnis und führe den Befehl `./mvnw quarkus:dev` aus. Dadurch wird das Projekt kompiliert und der Quarkus-Entwicklungsmodus gestartet.
 
-4. Um Swagger UI aufzurufen, starte das Projekt und navigiere zu `http://localhost:8080/swagger-ui/` in deinem Webbrowser. Du kannst dort die verschiedenen API-Endpunkte anzeigen, deren Details überprüfen und sogar Anfragen direkt ausführen.
+3. **Verwende die RESTful-API:** Das Blog-Backend ist nun unter `http://localhost:8080/blog` erreichbar. Du kannst die folgenden Endpunkte verwenden:
+
+    - `GET /blog`: Abrufen aller Blogbeiträge.
+    - `GET /blog/{id}`: Abrufen eines einzelnen Blogbeitrags anhand seiner ID.
+    - `POST /blog`: Erstellen eines neuen Blogbeitrags.
+    - `PUT /blog/{id}`: Aktualisieren eines vorhandenen Blogbeitrags.
+    - `DELETE /blog/{id}`: Löschen eines Blogbeitrags.
+
+4. **Swagger UI**: Das Blog-Backend enthält eine Swagger UI-Schnittstelle, die unter `http://localhost:8080/swagger-ui/` verfügbar ist. Du kannst diese URL in deinem Webbrowser öffnen, um die API-Endpunkte anzuzeigen, deren Details zu überprüfen und sogar Anfragen direkt über die UI auszuführen.
 
 ## Tests
 
-Das Projekt enthält auch Tests, die die verschiedenen Komponenten überprüfen. Führe den Befehl `mvn test` aus, um die Tests auszuführen und sicherzustellen, dass alles korrekt funktioniert.
+Das Projekt enthält auch automatisierte Tests, um die Funktionalität sicherzustellen. Du kannst die Tests ausführen, indem du den Befehl `mvn test` in der Befehlszeile eingibst.
 
 ## Beitragende
 
 - Azad Ahmed <azad.ahmed@hftm.ch>
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
+> **_HINWEIS:_** Quarkus wird jetzt mit einer Dev UI ausgeliefert, die nur im Entwicklungsmodus unter `http://localhost:8080/q/dev/` verfügbar ist. Du kannst diese URL öffnen, um weitere Entwicklungs- und Debugging-Tools anzuzeigen.
+
