@@ -1,6 +1,7 @@
 package ch.hftm.model;
 
 
+import ch.hftm.dto.CommentDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,4 +31,20 @@ public class Comment {
         this.author = author;
         this.content = content;
     }
+
+    public CommentDTO toDTO() {
+        CommentDTO dto = new CommentDTO();
+        dto.setId(this.getId());
+        dto.setAuthor(this.getAuthor());
+        dto.setContent(this.getContent());
+        return dto;
+    }
+
+    public static Comment fromDTO(CommentDTO dto) {
+        Comment comment = new Comment();
+        comment.setAuthor(dto.getAuthor());
+        comment.setContent(dto.getContent());
+        return comment;
+    }
+
 }

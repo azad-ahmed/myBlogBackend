@@ -1,6 +1,7 @@
 package ch.hftm.model;
 
 
+import ch.hftm.dto.BlogDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,7 @@ import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Data
@@ -20,6 +22,28 @@ import java.util.List;
 public class Blog {
 
     public record BlogCreateDto(String title, String content) {}
+
+
+    public BlogDTO toDTO() {
+        BlogDTO dto = new BlogDTO();
+        dto.setId(this.getId());
+        dto.setTitle(this.getTitle());
+        dto.setContent(this.getContent());
+        dto.setAuthor(this.getAuthor());
+        dto.setLikes(this.getLikes());
+        dto.setComments(this.getComments().stream().map(Comment::toDTO).collect(Collectors.toList()));
+        return dto;
+    }
+
+    public static Blog fromDTO(BlogDTO dto) {
+        Blog blog = new Blog();
+        blog.setTitle(dto.getTitle());
+        blog.setContent(dto.getContent());
+        blog.setAuthor(dto.getAuthor());
+        // Handle comments conversion if needed
+        return blog;
+    }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

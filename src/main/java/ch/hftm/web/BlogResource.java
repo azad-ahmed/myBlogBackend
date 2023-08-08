@@ -1,6 +1,7 @@
 package ch.hftm.web;
 
 
+import ch.hftm.dto.BlogDTO;
 import ch.hftm.model.Blog;
 import ch.hftm.service.BlogService;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -11,6 +12,7 @@ import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.UriInfo;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @ApplicationScoped
 @Path("blog")
@@ -20,8 +22,9 @@ public class BlogResource {
     private BlogService blogService;
 
     @GET
-    public List<Blog> getBlogs() {
-        return blogService.getBlogs();
+    public List<BlogDTO> getBlogs() {
+        List<Blog> blogs = blogService.getBlogs();
+        return blogs.stream().map(Blog::toDTO).collect(Collectors.toList());
     }
 
     @POST
@@ -59,5 +62,4 @@ public class BlogResource {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
-
 }
